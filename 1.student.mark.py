@@ -3,10 +3,7 @@ def display(l):
     for _, item in enumerate(l):
         print(item)
 
-def main():
-    students = []
-    courses = []
-
+def input_students(students):
     students_count = int(input("give number of students pls: "))
     for i in range(0, students_count):
         student = {
@@ -21,6 +18,7 @@ def main():
 
         students.append(student)
 
+def input_courses(courses):
     courses_count = int(input("give number of courses pls: "))
     for i in range(0, courses_count):
         course = {
@@ -33,6 +31,13 @@ def main():
         course["name"] = input("give name of course pls: ")
 
         courses.append(course)
+
+def main():
+    students = []
+    courses = []
+
+    input_students(students)
+    input_courses(courses)
 
 if __name__ == "__main__":
     main()
