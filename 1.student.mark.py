@@ -41,14 +41,15 @@ def main():
     courses = []
 
     while True:
-        print("""welcome to the student management system.
+        print(textwrap.dedent("""\
+        welcome to the student management system.
         what do you want to do?
-        1 - input students info
-        2 - input courses info
-        3 - display students info
-        4 - display courses info
-        5 - exit
-        """)
+            1 - input students info
+            2 - input courses info
+            3 - display students info
+            4 - display courses info
+            5 - exit
+        """))
 
         print("proudly managing {students} students and {courses} courses"
               .format(students = len(students), courses = len(courses)))
