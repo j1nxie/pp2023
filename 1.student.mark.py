@@ -1,12 +1,13 @@
 import sys
 import os
+import textwrap
 
-def display(l):
+def display(l: list):
     # TODO: do pretty print
     for _, item in enumerate(l):
         print(item)
 
-def input_students(students):
+def input_students(students: list):
     students_count = int(input("give number of students pls: "))
     for i in range(0, students_count):
         student = {
@@ -21,7 +22,7 @@ def input_students(students):
 
         students.append(student)
 
-def input_courses(courses):
+def input_courses(courses: list):
     courses_count = int(input("give number of courses pls: "))
     for i in range(0, courses_count):
         course = {
