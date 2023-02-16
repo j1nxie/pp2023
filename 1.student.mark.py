@@ -1,3 +1,6 @@
+import sys
+import os
+
 def display(l):
     # TODO: do pretty print
     for _, item in enumerate(l):
@@ -36,8 +39,41 @@ def main():
     students = []
     courses = []
 
-    input_students(students)
-    input_courses(courses)
+    while True:
+        print("""welcome to the student management system.
+        what do you want to do?
+        1 - input students info
+        2 - input courses info
+        3 - display students info
+        4 - display courses info
+        5 - exit
+        """)
+
+        print("proudly managing {students} students and {courses} courses"
+              .format(students = len(students), courses = len(courses)))
+
+        choice = int(input("choice: "))
+
+        match choice:
+            case 1:
+                input_students(students)
+            case 2:
+                input_courses(courses)
+            case 3:
+                display(students)
+            case 4:
+                display(courses)
+            case 5:
+                break
+            case _:
+                print("invalid choice!")
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("system is interrupted by keyboard")
+        try:
+            sys.exit(130)
+        except SystemExit:
+            os._exit(130)
