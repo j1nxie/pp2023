@@ -1,0 +1,19 @@
+{
+	"name": "pp2023",
+	"version": "0.1.0",
+	"description": "",
+	"scripts": {
+		"postinstall": "husky install",
+		"commit": "cz"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	},
+	"devDependencies": {
+		"@commitlint/cz-commitlint": "^17.4.4",
+		"commitizen": "^4.3.0",
+		"inquirer": "^8.2.5"
+	}
+}
