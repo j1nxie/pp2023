@@ -74,6 +74,38 @@ class Course:
         print(f"course id: {self.__id}")
         # TODO: display marks
 
+class Mark:
+    def __init__(self, student: Student, course: Course, result: float) -> None:
+        self.__student = student
+        self.__course = course
+        self.__result = result
+
+    def get_student(self) -> Student:
+        return self.__student
+
+    def get_course(self) -> Course:
+        return self.__course
+
+    def get_result(self) -> float:
+        return self.__result
+
+    def set_student(self, student: Student) -> Self:
+        self.__student = student
+        return self
+
+    def set_course(self, course: Course) -> Self:
+        self.__course = course
+        return self
+
+    def set_result(self, result: float) -> Self:
+        self.__result = result
+        return self
+
+    def display(self) -> None:
+        print(f"student name: {self.get_student().get_name()}")
+        print(f"course: {self.get_course().get_name()}")
+        print(f"result: {self.get_result()}")
+
 def main():
     print(textwrap.dedent("""\
     welcome to the student management system.
