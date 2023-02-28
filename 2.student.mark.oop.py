@@ -37,6 +37,11 @@ class Student:
         self.__dob = dob
         return self
 
+    def display(self) -> None:
+        print(f"student name: {self.__name}")
+        print(f"student id: {self.__id}")
+        print(f"student dob (yyyy-mm-dd): {self.__dob}")
+
 class Course:
     def __init__(self, name: str, id: int, marks: list):
         self.__name = name
@@ -63,6 +68,11 @@ class Course:
     def set_marks(self, marks: list) -> Self:
         self.__marks = marks
         return self
+
+    def display(self) -> None:
+        print(f"course name: {self.__name}")
+        print(f"course id: {self.__id}")
+        # TODO: display marks
 
 def main():
     print(textwrap.dedent("""\
