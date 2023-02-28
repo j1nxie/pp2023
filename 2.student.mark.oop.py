@@ -1,15 +1,20 @@
 import sys
 import os
 import textwrap
-from typing import Self
 
+if sys.version_info >= (3, 11):
+    from typing import Self
+else:
+    from typing_extensions import Self
+
+students = []
+courses = []
 
 class Student:
-    def __init__(self, name: str, id: int, dob: str) -> Self:
+    def __init__(self, name: str, id: int, dob: str):
         self.__name = name
         self.__id = id
         self.__dob = dob
-        return self
 
     def get_name(self) -> str:
         return self.__name
@@ -17,7 +22,7 @@ class Student:
     def get_id(self) -> int:
         return self.__id
 
-    def get_dob(self) -> int:
+    def get_dob(self) -> str:
         return self.__dob
 
     def set_name(self, name: str) -> Self:
@@ -33,11 +38,10 @@ class Student:
         return self
 
 class Course:
-    def __init__(self, name: str, id: int, marks: list) -> Self:
+    def __init__(self, name: str, id: int, marks: list):
         self.__name = name
         self.__id = id
         self.__marks = marks
-        return self
 
     def get_name(self) -> str:
         return self.__name
@@ -61,7 +65,29 @@ class Course:
         return self
 
 def main():
-    print("hello world")
+    print(textwrap.dedent("""\
+    welcome to the student management system.
+    what do you want to do?
+        1 - input students info
+        2 - input courses info
+        3 - input marks
+        4 - display students info
+        5 - display courses info
+        6 - display marks
+        7 - exit
+    """))
+
+    while True:
+        print(f"proudly managing {len(students)} students and {len(courses)} courses!")
+
+        choice = int(input("choice: "))
+        print()
+
+        match choice:
+            case 7: 
+                break
+            case _:
+                print("unimplemented!")
 
 if __name__ == "__main__":
     try:
