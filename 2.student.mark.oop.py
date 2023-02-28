@@ -11,7 +11,7 @@ students = []
 courses = []
 
 class Student:
-    def __init__(self, name: str, id: int, dob: str):
+    def __init__(self, name: str, id: str, dob: str) -> None:
         self.__name = name
         self.__id = id
         self.__dob = dob
@@ -43,7 +43,7 @@ class Student:
         print(f"student dob (yyyy-mm-dd): {self.__dob}")
 
 class Course:
-    def __init__(self, name: str, id: int, marks: list):
+    def __init__(self, name: str, id: str, marks: list) -> None:
         self.__name = name
         self.__id = id
         self.__marks = marks
