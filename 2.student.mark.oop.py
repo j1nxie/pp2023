@@ -19,7 +19,7 @@ class Student:
     def get_name(self) -> str:
         return self.__name
 
-    def get_id(self) -> int:
+    def get_id(self) -> str:
         return self.__id
 
     def get_dob(self) -> str:
@@ -29,7 +29,7 @@ class Student:
         self.__name = name
         return self
 
-    def set_id(self, id: int) -> Self:
+    def set_id(self, id: str) -> Self:
         self.__id = id
         return self
 
@@ -51,7 +51,7 @@ class Course:
     def get_name(self) -> str:
         return self.__name
 
-    def get_id(self) -> int:
+    def get_id(self) -> str:
         return self.__id
 
     def get_marks(self) -> list:
@@ -61,7 +61,7 @@ class Course:
         self.__name = name
         return self
 
-    def set_id(self, id: int) -> Self:
+    def set_id(self, id: str) -> Self:
         self.__id = id
         return self
 
