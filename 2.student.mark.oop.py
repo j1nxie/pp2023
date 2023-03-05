@@ -130,6 +130,38 @@ def input_courses():
     course = Course(name, id, [])
     courses.append(course)
 
+def input_marks():
+    for (i, course) in enumerate(courses, 1):
+        print(f"{i}. {course.get_name()}")
+
+    while True:
+        course_choice = int(input("select a course (0 - exit): "))
+
+        if course_choice == 0:
+            break
+
+        selected_course = courses[course_choice - 1]
+        print(f"currently modifying marks for course {selected_course.get_name()}")
+
+        while True:
+            for (i, student) in enumerate(students, 1):
+                print(f"{i}. {student.get_name()} - {student.get_id()}")
+
+            student_choice = int(input("select a student (0 - exit): "))
+            if student_choice == 0:
+                break
+
+            selected_student = students[student_choice - 1]
+            print(f"currently modifying marks for student {selected_student.get_name()}")
+
+            midterm = float(input("give midterm mark pls: "))
+            final = float(input("give final mark pls: "))
+
+            mark = Mark(selected_student, selected_course, midterm, final)
+            current_mark_list = selected_course.get_marks()
+            current_mark_list.append(mark)
+            selected_course.set_marks(current_mark_list)
+
 def display_students():
     for student in students:
         student.display()
@@ -172,6 +204,13 @@ def main():
                 input_students()
             case 2:
                 input_courses()
+            case 3:
+                if not students:
+                    print("there are no students!")
+                elif not courses:
+                    print("there are no courses!")
+                else:
+                    input_marks()
             case 4:
                 if not students:
                     print("there are no students!")
@@ -182,6 +221,13 @@ def main():
                     print("there are no courses!")
                 else:
                     display_courses()
+            case 6:
+                if not students:
+                    print("there are no students!")
+                elif not courses:
+                    print("there are no courses!")
+                else:
+                    display_marks()
             case 7: 
                 break
             case _:
