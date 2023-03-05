@@ -73,9 +73,6 @@ class Course:
     def display(self) -> None:
         print(f"course name: {self.__name}")
         print(f"course id: {self.__id}")
-        print("course marks:")
-        for mark in self.__marks:
-            mark.display()
         print()
 
 class Mark:
@@ -131,6 +128,16 @@ def display_students():
 def display_courses():
     for course in courses:
         course.display()
+
+def display_marks():
+    for (i, course) in enumerate(courses, 1):
+        print(f"{i}. {course.get_name()}")
+
+    choice = int(input("select a course: "))
+    course_marks = courses[choice - 1].get_marks()
+    for mark in course_marks:
+        mark.display()
+        print()
 
 def main():
     print(textwrap.dedent("""\
