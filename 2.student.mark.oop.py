@@ -73,7 +73,9 @@ class Course:
     def display(self) -> None:
         print(f"course name: {self.__name}")
         print(f"course id: {self.__id}")
-        # TODO: display marks
+        print("course marks:")
+        for mark in self.__marks:
+            mark.display()
         print()
 
 class Mark:
