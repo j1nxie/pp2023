@@ -41,6 +41,7 @@ class Student:
         print(f"student name: {self.__name}")
         print(f"student id: {self.__id}")
         print(f"student dob (yyyy-mm-dd): {self.__dob}")
+        print()
 
 class Course:
     def __init__(self, name: str, id: str, marks: list) -> None:
@@ -73,6 +74,7 @@ class Course:
         print(f"course name: {self.__name}")
         print(f"course id: {self.__id}")
         # TODO: display marks
+        print()
 
 class Mark:
     def __init__(self, student: Student, course: Course, result: float) -> None:
@@ -105,6 +107,7 @@ class Mark:
         print(f"student name: {self.get_student().get_name()}")
         print(f"course: {self.get_course().get_name()}")
         print(f"result: {self.get_result()}")
+        print()
 
 def main():
     print(textwrap.dedent("""\
