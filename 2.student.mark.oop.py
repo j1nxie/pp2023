@@ -111,6 +111,27 @@ class Mark:
         print(f"result: {self.__result}")
         print()
 
+def input_students():
+    name = input("input student name: ")
+    id = input("input student id: ")
+    dob = input("input student dob: ")
+    student = Student(name, id, dob)
+    students.append(student)
+
+def input_courses():
+    name = input("input course name: ")
+    id = input("input course id: ")
+    course = Course(name, id, [])
+    courses.append(course)
+
+def display_students():
+    for student in students:
+        student.display()
+
+def display_courses():
+    for course in courses:
+        course.display()
+
 def main():
     print(textwrap.dedent("""\
     welcome to the student management system.
@@ -131,6 +152,20 @@ def main():
         print()
 
         match choice:
+            case 1:
+                input_students()
+            case 2:
+                input_courses()
+            case 4:
+                if not students:
+                    print("there are no students!")
+                else:
+                    display_students()
+            case 5:
+                if not courses:
+                    print("there are no courses!")
+                else:
+                    display_courses()
             case 7: 
                 break
             case _:
