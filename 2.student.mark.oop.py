@@ -76,10 +76,11 @@ class Course:
         print()
 
 class Mark:
-    def __init__(self, student: Student, course: Course, result: float) -> None:
+    def __init__(self, student: Student, course: Course, midterm: float, final: float) -> None:
         self.__student = student
         self.__course = course
-        self.__result = result
+        self.__midterm = midterm
+        self.__final = final
 
     def get_student(self) -> Student:
         return self.__student
@@ -87,8 +88,11 @@ class Mark:
     def get_course(self) -> Course:
         return self.__course
 
-    def get_result(self) -> float:
-        return self.__result
+    def get_midterm(self) -> float:
+        return self.__midterm
+
+    def get_final(self) -> float:
+        return self.__final
 
     def set_student(self, student: Student) -> Self:
         self.__student = student
@@ -98,14 +102,19 @@ class Mark:
         self.__course = course
         return self
 
-    def set_result(self, result: float) -> Self:
-        self.__result = result
+    def set_midterm(self, midterm: float) -> Self:
+        self.__midterm = midterm 
+        return self
+
+    def set_final(self, final: float) -> Self:
+        self.__final = final
         return self
 
     def display(self) -> None:
         print(f"student name: {self.__student.get_name()}")
         print(f"course: {self.__course.get_name()}")
-        print(f"result: {self.__result}")
+        print(f"midterm: {self.__midterm}")
+        print(f"final: {self.__final}")
         print()
 
 def input_students():
