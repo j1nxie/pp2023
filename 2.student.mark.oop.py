@@ -106,9 +106,9 @@ class Mark:
         return self
 
     def display(self) -> None:
-        print(f"student name: {self.get_student().get_name()}")
-        print(f"course: {self.get_course().get_name()}")
-        print(f"result: {self.get_result()}")
+        print(f"student name: {self.__student.get_name()}")
+        print(f"course: {self.__course.get_name()}")
+        print(f"result: {self.__result}")
         print()
 
 def main():
