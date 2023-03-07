@@ -5,9 +5,9 @@ import textwrap
 students = []
 courses = []
 
-def display(l: list):
+def display(list: list):
     # TODO: do pretty print
-    for _, item in enumerate(l):
+    for _, item in enumerate(list):
         print("{id}. {name}".format(id = item["id"], name = item["name"]))
 
 def display_marks():
