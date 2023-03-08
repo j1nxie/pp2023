@@ -154,8 +154,8 @@ def input_marks():
             selected_student = students[student_choice - 1]
             print(f"currently modifying marks for student {selected_student.get_name()}")
 
-            midterm = float(input("give midterm mark pls: "))
-            final = float(input("give final mark pls: "))
+            midterm = round(float(input("give midterm mark pls: ")), 1)
+            final = round(float(input("give final mark pls: ")), 1)
 
             mark = Mark(selected_student, selected_course, midterm, final)
             current_mark_list = selected_course.get_marks()
