@@ -10,8 +10,17 @@ else:
 students = []
 courses = []
 
-class Student:
-    def __init__(self, name: str, id: str, dob: str, gpa: float) -> None:
+class EduObj:
+    def get_class_name(self) -> str:
+        return self.__class__.__name__
+
+    def input(self, *args, **kwargs):
+        pass
+
+    def display(self, *args, **kwargs):
+        pass
+
+class Student(EduObj):
         self.__name = name
         self.__id = id
         self.__dob = dob
@@ -52,7 +61,7 @@ class Student:
         print(f"student gpa: {self.__gpa}")
         print()
 
-class Course:
+class Course(EduObj):
     def __init__(self, name: str, id: str, credits: int, marks: list) -> None:
         self.__name = name
         self.__id = id
@@ -92,8 +101,8 @@ class Course:
         print(f"course id: {self.__id}")
         print()
 
-class Mark:
     def __init__(self, student: Student, course: Course, midterm: float, final: float) -> None:
+class Mark(EduObj):
         self.__student = student
         self.__course = course
         self.__midterm = midterm
@@ -138,7 +147,7 @@ def input_students():
     name = input("input student name: ")
     id = input("input student id: ")
     dob = input("input student dob: ")
-    student = Student(name, id, dob, 0.0)
+    student = Student(name, id, dob, None)
     students.append(student)
 
 def input_courses():
@@ -180,23 +189,11 @@ def input_marks():
             current_mark_list.append(mark)
             selected_course.set_marks(current_mark_list)
 
-def display_students():
-    for student in students:
-        student.display()
-
-def display_courses():
-    for course in courses:
-        course.display()
-
-def display_marks():
-    for (i, course) in enumerate(courses, 1):
-        print(f"{i}. {course.get_name()}")
-
-    choice = int(input("select a course: "))
-    course_marks = courses[choice - 1].get_marks()
-    for mark in course_marks:
-        mark.display()
-        print()
+def display_objects(object_list: list):
+    for (i, obj) in enumerate(object_list, 1):
+        print(f"{obj.get_class_name()} {i}:")
+        if isinstance(obj, EduObj):
+            obj.display()
 
 def main():
     print(textwrap.dedent("""\
@@ -233,19 +230,22 @@ def main():
                 if not students:
                     print("there are no students!")
                 else:
-                    display_students()
+                    display_objects(students)
             case 5:
                 if not courses:
                     print("there are no courses!")
                 else:
-                    display_courses()
+                    display_objects(courses)
             case 6:
                 if not students:
                     print("there are no students!")
                 elif not courses:
                     print("there are no courses!")
                 else:
-                    display_marks()
+                    display_objects(courses)
+                    choice = int(input("select a course: "))
+                    course_marks = courses[choice - 1].get_marks()
+                    display_objects(course_marks)
             case 7: 
                 break
             case _:
