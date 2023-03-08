@@ -11,10 +11,11 @@ students = []
 courses = []
 
 class Student:
-    def __init__(self, name: str, id: str, dob: str) -> None:
+    def __init__(self, name: str, id: str, dob: str, gpa: float) -> None:
         self.__name = name
         self.__id = id
         self.__dob = dob
+        self.__gpa = gpa
 
     def get_name(self) -> str:
         return self.__name
@@ -24,6 +25,9 @@ class Student:
 
     def get_dob(self) -> str:
         return self.__dob
+
+    def get_gpa(self) -> float:
+        return self.__gpa
 
     def set_name(self, name: str) -> Self:
         self.__name = name
@@ -37,10 +41,15 @@ class Student:
         self.__dob = dob
         return self
 
+    def set_gpa(self, gpa: float) -> Self:
+        self.__gpa = gpa
+        return self
+
     def display(self) -> None:
         print(f"student name: {self.__name}")
         print(f"student id: {self.__id}")
         print(f"student dob (yyyy-mm-dd): {self.__dob}")
+        print(f"student gpa: {self.__gpa}")
         print()
 
 class Course:
@@ -121,7 +130,7 @@ def input_students():
     name = input("input student name: ")
     id = input("input student id: ")
     dob = input("input student dob: ")
-    student = Student(name, id, dob)
+    student = Student(name, id, dob, 0.0)
     students.append(student)
 
 def input_courses():
