@@ -102,12 +102,11 @@ class Course(EduObj):
         print(f"course id: {self.__id}")
         print()
 
-    def __init__(self, student: Student, course: Course, midterm: float, final: float) -> None:
 class Mark(EduObj):
+    def __init__(self, student: Student, course: Course, result: float) -> None:
         self.__student = student
         self.__course = course
-        self.__midterm = midterm
-        self.__final = final
+        self.__result = result
 
     def get_student(self) -> Student:
         return self.__student
@@ -115,11 +114,8 @@ class Mark(EduObj):
     def get_course(self) -> Course:
         return self.__course
 
-    def get_midterm(self) -> float:
-        return self.__midterm
-
-    def get_final(self) -> float:
-        return self.__final
+    def get_result(self) -> float:
+        return self.__result
 
     def set_student(self, student: Student) -> Self:
         self.__student = student
@@ -129,19 +125,14 @@ class Mark(EduObj):
         self.__course = course
         return self
 
-    def set_midterm(self, midterm: float) -> Self:
-        self.__midterm = midterm 
-        return self
-
-    def set_final(self, final: float) -> Self:
-        self.__final = final
+    def set_result(self, result: float) -> Self:
+        self.__result = result
         return self
 
     def display(self) -> None:
         print(f"student name: {self.__student.get_name()}")
         print(f"course: {self.__course.get_name()}")
-        print(f"midterm: {self.__midterm}")
-        print(f"final: {self.__final}")
+        print(f"- result: {self.__result}")
         print()
 
 def input_students():
@@ -182,10 +173,9 @@ def input_marks():
             selected_student = students[student_choice - 1]
             print(f"currently modifying marks for student {selected_student.get_name()}")
 
-            midterm = round(float(input("give midterm mark pls: ")), 1)
-            final = round(float(input("give final mark pls: ")), 1)
+            result = round(float(input("give result pls: ")), 1)
 
-            mark = Mark(selected_student, selected_course, midterm, final)
+            mark = Mark(selected_student, selected_course, result)
             current_mark_list = selected_course.get_marks()
             current_mark_list.append(mark)
             selected_course.set_marks(current_mark_list)
