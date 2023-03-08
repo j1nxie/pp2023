@@ -56,10 +56,10 @@ class Student(EduObj):
         return self
 
     def display(self) -> None:
-        print(f"student name: {self.__name}")
-        print(f"student id: {self.__id}")
-        print(f"student dob (yyyy-mm-dd): {self.__dob}")
-        print(f"student gpa: {self.__gpa}")
+        print(f"- student name: {self.__name}")
+        print(f"- student id: {self.__id}")
+        print(f"- student dob (yyyy-mm-dd): {self.__dob}")
+        print(f"- student gpa: {self.__gpa}")
         print()
 
 class Course(EduObj):
@@ -98,8 +98,8 @@ class Course(EduObj):
         return self
 
     def display(self) -> None:
-        print(f"course name: {self.__name}")
-        print(f"course id: {self.__id}")
+        print(f"- course name: {self.__name}")
+        print(f"- course id: {self.__id}")
         print()
 
 class Mark(EduObj):
@@ -130,8 +130,8 @@ class Mark(EduObj):
         return self
 
     def display(self) -> None:
-        print(f"student name: {self.__student.get_name()}")
-        print(f"course: {self.__course.get_name()}")
+        print(f"- student name: {self.__student.get_name()}")
+        print(f"- course: {self.__course.get_name()}")
         print(f"- result: {self.__result}")
         print()
 
