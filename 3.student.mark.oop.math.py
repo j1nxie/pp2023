@@ -53,9 +53,10 @@ class Student:
         print()
 
 class Course:
-    def __init__(self, name: str, id: str, marks: list) -> None:
+    def __init__(self, name: str, id: str, credits: int, marks: list) -> None:
         self.__name = name
         self.__id = id
+        self.__credits = credits
         self.__marks = marks
 
     def get_name(self) -> str:
@@ -63,6 +64,9 @@ class Course:
 
     def get_id(self) -> str:
         return self.__id
+
+    def get_credits(self) -> int:
+        return self.__credits
 
     def get_marks(self) -> list:
         return self.__marks
@@ -73,6 +77,10 @@ class Course:
 
     def set_id(self, id: str) -> Self:
         self.__id = id
+        return self
+
+    def set_credits(self, credits: int) -> Self:
+        self.__credits = credits
         return self
 
     def set_marks(self, marks: list) -> Self:
@@ -136,7 +144,8 @@ def input_students():
 def input_courses():
     name = input("input course name: ")
     id = input("input course id: ")
-    course = Course(name, id, [])
+    credits = int(input("input course credits: "))
+    course = Course(name, id, credits, [])
     courses.append(course)
 
 def input_marks():
