@@ -21,6 +21,7 @@ class EduObj:
         pass
 
 class Student(EduObj):
+    def __init__(self, name: str, id: str, dob: str, gpa: float | None) -> None:
         self.__name = name
         self.__id = id
         self.__dob = dob
@@ -35,7 +36,7 @@ class Student(EduObj):
     def get_dob(self) -> str:
         return self.__dob
 
-    def get_gpa(self) -> float:
+    def get_gpa(self) -> float | None:
         return self.__gpa
 
     def set_name(self, name: str) -> Self:
@@ -50,7 +51,7 @@ class Student(EduObj):
         self.__dob = dob
         return self
 
-    def set_gpa(self, gpa: float) -> Self:
+    def set_gpa(self, gpa: float | None) -> Self:
         self.__gpa = gpa
         return self
 
