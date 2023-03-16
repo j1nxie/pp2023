@@ -65,7 +65,8 @@ class Student(EduObj):
         print(f"- student name: {self.name}")
         print(f"- student id: {self.id}")
         print(f"- student dob (yyyy-mm-dd): {self.dob}")
-        print(f"- student gpa: {self.gpa}")
+        if self.gpa:
+            print(f"- student gpa: {round(self.gpa, 1)}")
         print()
 
 class Course(EduObj):
