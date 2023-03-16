@@ -1,6 +1,7 @@
 import sys
 import os
 import textwrap
+import numpy
 
 if sys.version_info >= (3, 11):
     from typing import Self
@@ -205,6 +206,26 @@ def display_objects(object_list: list):
         if isinstance(obj, EduObj):
             obj.display()
 
+def calculate_gpa() -> None:
+    row = len(courses)
+    col = len(students)
+    matrix = numpy.zeros(shape=(row, col))
+    credits_list = []
+
+    for (i, course) in enumerate(courses):
+        credits_list.append(course.credits)
+        for mark in course.marks:
+            matrix[i] = mark.result
+
+    transposed_matrix = matrix.transpose()
+
+    for (i, row) in enumerate(transposed_matrix):
+        total = 0
+        for (j, column) in enumerate(row):
+            total += column * credits_list[j]
+        gpa = total / sum(credits_list)
+        students[i].gpa = gpa
+
 def main():
     print(textwrap.dedent("""\
     welcome to the student management system.
@@ -215,7 +236,8 @@ def main():
         4 - display students info
         5 - display courses info
         6 - display marks
-        7 - exit
+        7 - calculate gpa for all students
+        8 - exit
     """))
 
     while True:
@@ -259,7 +281,15 @@ def main():
                         print("course has no marks!")
                     else:
                         display_objects(course_marks)
-            case 7: 
+            case 7:
+                if not students:
+                    print("there are no students!")
+                elif not courses:
+                    print("there are no courses!")
+                else:
+                    calculate_gpa()
+            case 8: 
+                print("see you next time!")
                 break
             case _:
                 print("unimplemented!")
