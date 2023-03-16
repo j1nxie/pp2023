@@ -151,7 +151,7 @@ class Mark(EduObj):
     def display(self) -> None:
         print(f"- student name: {self.student.name}")
         print(f"- course: {self.course.name}")
-        print(f"- result: {self.result}")
+        print(f"- result: {round(self.result, 1)}")
         print()
 
 def input_students():
