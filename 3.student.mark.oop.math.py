@@ -14,9 +14,6 @@ class EduObj:
     def get_class_name(self) -> str:
         return self.__class__.__name__
 
-    def input(self, *args, **kwargs) -> None:
-        pass
-
     def display(self, *args, **kwargs) -> None:
         pass
 
