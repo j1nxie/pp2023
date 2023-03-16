@@ -27,39 +27,47 @@ class Student(EduObj):
         self.__dob = dob
         self.__gpa = gpa
 
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self.__name
 
-    def get_id(self) -> str:
+    @property
+    def id(self) -> str:
         return self.__id
 
-    def get_dob(self) -> str:
+    @property
+    def dob(self) -> str:
         return self.__dob
 
-    def get_gpa(self) -> float | None:
+    @property
+    def gpa(self) -> float | None:
         return self.__gpa
 
-    def set_name(self, name: str) -> Self:
+    @name.setter
+    def name(self, name: str) -> Self:
         self.__name = name
         return self
 
-    def set_id(self, id: str) -> Self:
+    @id.setter
+    def id(self, id: str) -> Self:
         self.__id = id
         return self
 
-    def set_dob(self, dob: str) -> Self:
+    @dob.setter
+    def dob(self, dob: str) -> Self:
         self.__dob = dob
         return self
 
-    def set_gpa(self, gpa: float | None) -> Self:
+    @gpa.setter
+    def gpa(self, gpa: float | None) -> Self:
         self.__gpa = gpa
         return self
 
     def display(self) -> None:
-        print(f"- student name: {self.__name}")
-        print(f"- student id: {self.__id}")
-        print(f"- student dob (yyyy-mm-dd): {self.__dob}")
-        print(f"- student gpa: {self.__gpa}")
+        print(f"- student name: {self.name}")
+        print(f"- student id: {self.id}")
+        print(f"- student dob (yyyy-mm-dd): {self.dob}")
+        print(f"- student gpa: {self.gpa}")
         print()
 
 class Course(EduObj):
@@ -69,37 +77,45 @@ class Course(EduObj):
         self.__credits = credits
         self.__marks = marks
 
-    def get_name(self) -> str:
+    @property
+    def name(self) -> str:
         return self.__name
 
-    def get_id(self) -> str:
+    @property
+    def id(self) -> str:
         return self.__id
 
-    def get_credits(self) -> int:
+    @property
+    def credits(self) -> int:
         return self.__credits
 
-    def get_marks(self) -> list:
+    @property
+    def marks(self) -> list:
         return self.__marks
 
-    def set_name(self, name: str) -> Self:
+    @name.setter
+    def name(self, name: str) -> Self:
         self.__name = name
         return self
 
-    def set_id(self, id: str) -> Self:
+    @id.setter
+    def id(self, id: str) -> Self:
         self.__id = id
         return self
 
-    def set_credits(self, credits: int) -> Self:
+    @credits.setter
+    def credits(self, credits: int) -> Self:
         self.__credits = credits
         return self
 
-    def set_marks(self, marks: list) -> Self:
+    @marks.setter
+    def marks(self, marks: list) -> Self:
         self.__marks = marks
         return self
 
     def display(self) -> None:
-        print(f"- course name: {self.__name}")
-        print(f"- course id: {self.__id}")
+        print(f"- course name: {self.name}")
+        print(f"- course id: {self.id}")
         print()
 
 class Mark(EduObj):
@@ -108,31 +124,37 @@ class Mark(EduObj):
         self.__course = course
         self.__result = result
 
-    def get_student(self) -> Student:
+    @property
+    def student(self) -> Student:
         return self.__student
 
-    def get_course(self) -> Course:
+    @property
+    def course(self) -> Course:
         return self.__course
 
-    def get_result(self) -> float:
+    @property
+    def result(self) -> float:
         return self.__result
 
-    def set_student(self, student: Student) -> Self:
+    @student.setter
+    def student(self, student: Student) -> Self:
         self.__student = student
         return self
 
-    def set_course(self, course: Course) -> Self:
+    @course.setter
+    def course(self, course: Course) -> Self:
         self.__course = course
         return self
 
-    def set_result(self, result: float) -> Self:
+    @result.setter
+    def result(self, result: float) -> Self:
         self.__result = result
         return self
 
     def display(self) -> None:
-        print(f"- student name: {self.__student.get_name()}")
-        print(f"- course: {self.__course.get_name()}")
-        print(f"- result: {self.__result}")
+        print(f"- student name: {self.student.name}")
+        print(f"- course: {self.course.name}")
+        print(f"- result: {self.result}")
         print()
 
 def input_students():
