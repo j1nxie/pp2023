@@ -255,6 +255,10 @@ def main():
                     display_objects(courses)
                     choice = int(input("select a course: "))
                     course_marks = courses[choice - 1].marks
+                    if not course_marks:
+                        print("course has no marks!")
+                    else:
+                        display_objects(course_marks)
             case 7: 
                 break
             case _:
