@@ -170,7 +170,7 @@ def input_courses():
 
 def input_marks():
     for (i, course) in enumerate(courses, 1):
-        print(f"{i}. {course.get_name()}")
+        print(f"{i}. {course.name}")
 
     while True:
         course_choice = int(input("select a course (0 - exit): "))
@@ -179,25 +179,25 @@ def input_marks():
             break
 
         selected_course = courses[course_choice - 1]
-        print(f"currently modifying marks for course {selected_course.get_name()}")
+        print(f"currently modifying marks for course {selected_course.name}")
 
         while True:
             for (i, student) in enumerate(students, 1):
-                print(f"{i}. {student.get_name()} - {student.get_id()}")
+                print(f"{i}. {student.name} - {student.id}")
 
             student_choice = int(input("select a student (0 - exit): "))
             if student_choice == 0:
                 break
 
             selected_student = students[student_choice - 1]
-            print(f"currently modifying marks for student {selected_student.get_name()}")
+            print(f"currently modifying marks for student {selected_student.name}")
 
-            result = round(float(input("give result pls: ")), 1)
+            result = float(input("give result pls: "))
 
             mark = Mark(selected_student, selected_course, result)
-            current_mark_list = selected_course.get_marks()
+            current_mark_list = selected_course.marks
             current_mark_list.append(mark)
-            selected_course.set_marks(current_mark_list)
+            selected_course.marks = current_mark_list
 
 def display_objects(object_list: list):
     for (i, obj) in enumerate(object_list, 1):
@@ -254,8 +254,7 @@ def main():
                 else:
                     display_objects(courses)
                     choice = int(input("select a course: "))
-                    course_marks = courses[choice - 1].get_marks()
-                    display_objects(course_marks)
+                    course_marks = courses[choice - 1].marks
             case 7: 
                 break
             case _:
