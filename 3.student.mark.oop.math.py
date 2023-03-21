@@ -189,6 +189,8 @@ def input_marks():
 
             student_choice = int(input("select a student (0 - exit): "))
             if student_choice == 0:
+                for (i, course) in enumerate(courses, 1):
+                    print(f"{i}. {course.name}")
                 break
 
             selected_student = students[student_choice - 1]
