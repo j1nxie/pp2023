@@ -44,5 +44,3 @@ class Mark(EduObj):
         print(f"- course: {self.course.name}")
         print(f"- result: {round(self.result, 1)}")
         print()
-
-
