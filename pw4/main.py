@@ -11,12 +11,14 @@ def main():
     print(textwrap.dedent("""\
         welcome to the student management system.
         what do you want to do?
-            1 - input information
-            2 - output information
-            3 - exit
         """))
 
     while True:
+        print(textwrap.dedent("""\
+                1 - input information
+                2 - output information
+                3 - exit
+            """))
         print(f"proudly managing {len(major.students)} students and {len(major.courses)} courses!")
 
         choice = int(input("choice: "))

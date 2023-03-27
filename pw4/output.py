@@ -29,17 +29,14 @@ def calculate_gpa(major: Major) -> None:
         major.students[i].gpa = gpa
 
 def outputs(major: Major):
-    print(textwrap.dedent("""\
-    welcome to the student management system.
-    what do you want to do?
-        1 - display students info
-        2 - display courses info
-        3 - display marks
-        4 - calculate gpa for all students
-        5 - exit
-    """))
-
     while True:
+        print(textwrap.dedent("""\
+            1 - display students info
+            2 - display courses info
+            3 - display marks
+            4 - calculate gpa for all students
+            5 - exit
+        """))
         print(f"proudly managing {len(major.students)} students and {len(major.courses)} courses!")
 
         choice = int(input("choice: "))
@@ -77,7 +74,6 @@ def outputs(major: Major):
                 else:
                     calculate_gpa(major)
             case 5:
-                print("see you next time!")
                 break
             case _:
                 print("unimplemented!")

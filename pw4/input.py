@@ -2,15 +2,13 @@ from domains import Major
 import textwrap
 
 def inputs(major: Major):
-    print(textwrap.dedent("""\
-        welcome to the student management system.
-        what do you want to do?
-            1 - input students info
-            2 - input courses info
-            3 - input marks
-        """))
-
     while True:
+        print(textwrap.dedent("""\
+                1 - input students info
+                2 - input courses info
+                3 - input marks
+                4 - exit
+            """))
         print(f"proudly managing {len(major.students)} students and {len(major.courses)} courses!")
 
         choice = int(input("choice: "))
@@ -28,8 +26,7 @@ def inputs(major: Major):
                     print("there are no courses!")
                 else:
                     major.add_mark()
-            case 8: 
-                print("see you next time!")
+            case 4: 
                 break
             case _:
                 print("unimplemented!")
