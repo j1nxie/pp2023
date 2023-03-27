@@ -1,4 +1,6 @@
-from domains import EduObj, Student, Course
+from .course import Course
+from .eduobj import EduObj
+from .student import Student
 import sys
 
 if sys.version_info >= (3, 11):
