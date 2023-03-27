@@ -1,4 +1,4 @@
-from .domains import EduObj, Major
+from domains import EduObj, Major
 import numpy
 import textwrap
 

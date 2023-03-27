@@ -1,4 +1,4 @@
-from .domains import Major
+from domains import Major
 import textwrap
 
 def inputs(major: Major):

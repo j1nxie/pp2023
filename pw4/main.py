@@ -1,6 +1,6 @@
-from .domains import Major
-from . import input as ip
-from . import output as op
+from domains import Major
+import input as ip
+import output as op
 import textwrap
 import sys
 import os
